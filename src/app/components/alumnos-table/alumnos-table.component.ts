@@ -29,9 +29,7 @@ export class AlumnosTableComponent implements OnInit {
   }
 
   calcularPromedios(): void {
-    this.alumnos.forEach(alumno => {
-      alumno.calcularPromedio();
-    });
+    this.alumnos.forEach(alumno => alumno.calcularPromedio());
   }
 
   quitarAlumno(alumnoId: number): void {
