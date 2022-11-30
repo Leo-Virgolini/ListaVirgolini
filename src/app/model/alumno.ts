@@ -6,12 +6,12 @@ export class Alumno {
     private _fechaNacieminto: Date;
     private _promedio: number;
 
-    constructor(id: number, nombre: string, apellido: string, fechaNacieminto: Date, promedio: number) {
+    constructor(id: number, nombre: string, apellido: string, fechaNacieminto: Date) {
         this._id = id;
         this._nombre = nombre;
         this._apellido = apellido;
         this._fechaNacieminto = fechaNacieminto;
-        this._promedio = promedio;
+        this._promedio = Math.floor(Math.random() * (10 * 10 - 1 * 10) + 1 * 10) / (1 * 10);
     }
 
     public set id(id: number) {
@@ -52,6 +52,10 @@ export class Alumno {
 
     public get promedio(): number {
         return this._promedio
+    }
+
+    public calcularPromedio(): void {
+        this._promedio = Math.floor(Math.random() * (10 * 10 - 1 * 10) + 1 * 10) / (1 * 10);
     }
 
 }
