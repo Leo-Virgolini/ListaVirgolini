@@ -20,7 +20,7 @@
                 <td>{{alumno.fechaNacieminto | date:'dd/MM/yyyy'}}</td>
                 <td [ngClass]="{
                     'text-danger' : alumno.promedio < 4,
-                    'text-success' : alumno.promedio > 7,
+                    'text-success' : alumno.promedio >= 7,
                     'text-warning' : alumno.promedio < 7
                 }">{{alumno.promedio}}</td>
                 <td>
