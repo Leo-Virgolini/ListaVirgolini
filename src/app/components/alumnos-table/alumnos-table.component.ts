@@ -9,8 +9,11 @@ import { Alumno } from 'src/app/model/alumno';
 export class AlumnosTableComponent implements OnInit {
 
   public alumnos: Alumno[];
+  public cargando: boolean;
 
   constructor() {
+    this.cargando = true;
+    
     this.alumnos = [
       new Alumno(1, 'Juan', 'Perez', new Date('1991/07/22')),
       new Alumno(2, 'Tomás', 'Roncero', new Date('1985/08/11')),
@@ -26,6 +29,9 @@ export class AlumnosTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.cargando = false;
+    }, 1500);
   }
 
   calcularPromedios(): void {

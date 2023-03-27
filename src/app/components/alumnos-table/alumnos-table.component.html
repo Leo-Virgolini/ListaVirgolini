@@ -1,30 +1,34 @@
-<table class="table table-hover table-striped text-center">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Fecha de nacimiento</th>
-            <th scope="col">Promedio</th>
-            <th scope="col">Quitar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let alumno of alumnos">
-            <th scope="row">{{alumno.id}}</th>
-            <td>{{alumno.nombre}}</td>
-            <td>{{alumno.apellido}}</td>
-            <td>{{alumno.fechaNacieminto | date:'dd/MM/yyyy'}}</td>
-            <td [ngClass]="alumno.promedio < 7 ? 'text-danger' : 'text-success'">{{alumno.promedio}}</td>
-            <td>
-                <button (click)="quitarAlumno(alumno.id)" class="btn btn-danger">
-                    QUITAR
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<app-spinner *ngIf="cargando"></app-spinner>
 
-<button (click)="calcularPromedios()" class="btn btn-success">
-    CALCULAR PROMEDIOS
-</button>
+<ng-container *ngIf="!cargando">
+    <table class="table table-hover table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Fecha de nacimiento</th>
+                <th scope="col">Promedio</th>
+                <th scope="col">Quitar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumno of alumnos">
+                <th scope="row">{{alumno.id}}</th>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellido}}</td>
+                <td>{{alumno.fechaNacieminto | date:'dd/MM/yyyy'}}</td>
+                <td [ngClass]="alumno.promedio < 7 ? 'text-danger' : 'text-success'">{{alumno.promedio}}</td>
+                <td>
+                    <button (click)="quitarAlumno(alumno.id)" class="btn btn-danger">
+                        QUITAR
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)="calcularPromedios()" class="btn btn-success">
+        CALCULAR PROMEDIOS
+    </button>
+</ng-container>
