@@ -31,7 +31,7 @@ export class AlumnosTableComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.cargando = false;
-    }, 1500);
+    }, 1000);
   }
 
   calcularPromedios(): void {
